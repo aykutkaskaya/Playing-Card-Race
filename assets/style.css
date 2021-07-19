@@ -1,0 +1,14 @@
+.empty-card {
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+    /* border: 1px solid gray; */
+}
+
+.card-place {
+    padding: 3px;
+    margin: 10px;
+    font-size: 7px;
+    height: 22.4em;
+    width: 16em;
+    max-height: 22.4em;
+    max-width: 16em;
+}
