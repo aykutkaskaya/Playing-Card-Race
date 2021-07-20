@@ -8,11 +8,11 @@ class card {
     }
 }
 
-var secret_one;
-var secret_two;
-var secret_three;
-var secret_four;
-var secret_five;
+var secret_one = new card();
+var secret_two = new card();
+var secret_three = new card();
+var secret_four = new card();
+var secret_five = new card();
 
 var clubs_index = 6;
 var spades_index = 6;
@@ -362,19 +362,39 @@ $(document).ready(function () {
         for (let index = 1; index < 6; index++) {
             switch (index) {
                 case 1:
-                    secret_one = PickACard();
+                    do {
+                        secret_one = PickACard();
+
+                    } while (secret_one.selected == true);
+                    secret_one.selected = true;
                     break;
                 case 2:
-                    secret_two = PickACard();
+                    do {
+                        secret_two = PickACard();
+
+                    } while (secret_two.selected == true);
+                    secret_two.selected = true;
                     break;
                 case 3:
-                    secret_three = PickACard();
+                    do {
+                        secret_three = PickACard();
+
+                    } while (secret_three.selected == true);
+                    secret_three.selected = true;
                     break;
                 case 4:
-                    secret_four = PickACard();
+                    do {
+                        secret_four = PickACard();
+
+                    } while (secret_four.selected == true);
+                    secret_four.selected = true;
                     break;
                 case 5:
-                    secret_five = PickACard();
+                    do {
+                        secret_five = PickACard();
+
+                    } while (secret_five.selected == true);
+                    secret_five.selected = true;
                     break;
                 default:
                     break;
