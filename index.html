@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/playingcards.css">
     <script src="assets/script.js"></script>
-    <!-- <script src="assets/playingcards.js"></script> -->
+    <script src="assets/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -45,7 +45,7 @@
                         <div class="col-md-2 card-place empty-card" id="col-1-4">
 
                         </div>
-                        <div class="col-md-2 card-place" id="col-1-5">
+                        <div class="col-md-2 card-place turned" id="col-1-5">
                             <div class="card">
                                 <div class="card-back"><span class="middle_center"><img src="img/back.png"></span></div>
                             </div>
@@ -66,7 +66,7 @@
                         <div class="col-md-2 card-place empty-card" id="col-2-4">
 
                         </div>
-                        <div class="col-md-2 card-place" id="col-2-5">
+                        <div class="col-md-2 card-place turned" id="col-2-5">
                             <div class="card">
                                 <div class="card-back"><span class="middle_center"><img src="img/back.png"></span></div>
                             </div>
@@ -87,7 +87,7 @@
                         <div class="col-md-2 card-place empty-card" id="col-3-4">
 
                         </div>
-                        <div class="col-md-2 card-place" id="col-3-5">
+                        <div class="col-md-2 card-place turned" id="col-3-5">
                             <div class="card">
                                 <div class="card-back"><span class="middle_center"><img src="img/back.png"></span></div>
                             </div>
@@ -108,7 +108,7 @@
                         <div class="col-md-2 card-place empty-card" id="col-4-4">
 
                         </div>
-                        <div class="col-md-2 card-place" id="col-4-5">
+                        <div class="col-md-2 card-place turned" id="col-4-5">
                             <div class="card">
                                 <div class="card-back"><span class="middle_center"><img src="img/back.png"></span></div>
                             </div>
@@ -125,14 +125,14 @@
                         </div>
                         <div class="col-md-2 card-place empty-card" id="col-5-4">
                         </div>
-                        <div class="col-md-2 card-place empty-card" id="col-5-5">
+                        <div class="col-md-2 card-place turned" id="col-5-5">
                             <div class="card">
                                 <div class="card-back"><span class="middle_center"><img src="img/back.png"></span></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row last-row" id="row-6">
+                    <div class="row" id="row-6">
                         <div class="col-md-2 card-place" id="col-6-1">
                             <div id="spade_ace" class="card card-slot">
                                 <div class="card-ace spade">
@@ -180,12 +180,11 @@
                     max-width: 100%;
                     width: 100%;
                 ">
-                        <i style="font-size: 14px;">Oyun henüz tamamlanmamıştır. Gördüğünüz hataları discord üzerinden yazabilirsiniz. <br>
-                            Şuan için;
-                            <br>
-                            --- gizliden açılan kartın kendi türündeki kartı bir aşağıya çekmesi olması gerektiği gibi çalışmıyor,
-                            <br>
-                            --- aynı kart birden fazla çekilebilir. destedeki kart kontrolü yapılmıyor.
+                        <i style="font-size: 14px;">Bu sayfa 1920x1080 çözünürlükte ve
+                            <br>tam ekran modunda test edilmiştir.
+                            <br>Diğer çözünürlüklerde görüntü bozulabilir.
+                            <br>Tespit ettiğiniz hataları https://github.com/aykutkaskaya adresinden bildirebilirsiniz.
+                            <br>İyi eğlenceler
 
                         </i>
                     </div>
@@ -196,8 +195,11 @@
                 <div class="row">
                     <div class="card-place">
                         <div style="font-size: 16px;">
-                            <button type="button" id="btnKartCek" onclick="YeniKart();" class="btn btn-primary" >Kart Çek!</button>
-                            <button type="button" id="btnNewGame" onclick="NewGame();" class="btn btn-danger" style="display:none" >Yeni Oyun!</button>
+                            <button type="button" id="btnKartCek" onclick="YeniKart();" class="btn btn-primary">Kart
+                                Çek!</button>
+                            <button type="button" id="btnNewGame" onclick="NewGame();" class="btn btn-danger"
+                                style="display:none">Yeni Oyun!</button>
+                            <i>Kalan Kart: </i><i id="remCard"></i>
 
                         </div>
                     </div>
