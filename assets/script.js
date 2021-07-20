@@ -18,10 +18,10 @@ var Selected_Diamonds = [];
 var Selected_Hearts = [];
 var Selected_Spades = [];
 
-var clubs_index = 5;
-var spades_index = 5;
-var hearts_index = 5;
-var diamonds_index = 5;
+var clubs_index = 6;
+var spades_index = 6;
+var hearts_index = 6;
+var diamonds_index = 6;
 
 var Clubs = [];
 var Diamonds = [];
@@ -76,6 +76,8 @@ $(document).ready(function () {
                 var theCard = $("#" + rowID + " .card");
                 rowID = "col-" + clubs_index + "-2";
                 $("#" + rowID).removeClass("empty-card");
+                $("#" + ("col-" + (Number(clubs_index) + 1) + "-2")).addClass("empty-card");
+
                 $("#" + rowID).append(theCard);
                 break;
             case "Diamonds":
@@ -84,6 +86,7 @@ $(document).ready(function () {
                 var theCard = $("#" + rowID + " .card");
                 rowID = "col-" + diamonds_index + "-4";
                 $("#" + rowID).removeClass("empty-card");
+                $("#" + ("col-" + (Number(diamonds_index) + 1) + "-4")).addClass("empty-card");
                 $("#" + rowID).append(theCard);
                 break;
             case "Spades":
@@ -92,6 +95,7 @@ $(document).ready(function () {
                 var theCard = $("#" + rowID + " .card");
                 rowID = "col-" + spades_index + "-1";
                 $("#" + rowID).removeClass("empty-card");
+                $("#" + ("col-" + (Number(spades_index) + 1) + "-1")).addClass("empty-card");
                 $("#" + rowID).append(theCard);
                 break;
             case "Hearts":
@@ -100,6 +104,8 @@ $(document).ready(function () {
                 var theCard = $("#" + rowID + " .card");
                 rowID = "col-" + hearts_index + "-3";
                 $("#" + rowID).removeClass("empty-card");
+                $("#" + ("col-" + (Number(hearts_index) + 1) + "-3")).addClass("empty-card");
+
                 $("#" + rowID).append(theCard);
                 break;
 
@@ -107,33 +113,174 @@ $(document).ready(function () {
                 break;
         }
 
-        // if ($("#row-5 .card-place .card-slot").length < 1) {
-        //     $("#col-5-5 .card").empty();
-        //     var tempCard = "cardView" + secret_five.id;;
-        //     $("#col-5-5 .card").append($("#" + tempCard).clone());
-        // }
+        if ($("#row-6").hasClass("last-row") && $("#row-6 .card-place .card-slot").length < 1) {
+            $("#col-6-5").empty();
+            var tempCard = "cardView" + secret_five.id;;
+            $("#col-6-5").append($("#" + tempCard).clone());
 
-        // if ($("#row-4 .card-place .card-slot").length < 1) {
-        //     $("#col-4-5 .card").empty();
-        //     var tempCard = "cardView" + secret_five.id;;
-        //     $("#col-4-5 .card").append($("#" + tempCard).clone());
-        // }
+            switch (secret_five.type) {
+                case "Clubs":
+                    PullBack("club_ace", 2);
+                    break;
+                case "Diamonds":
+                    PullBack("diamond_ace", 4);
+                    break;
+                case "Spades":
+                    PullBack("spade_ace", 1);
+                    break;
+                case "Hearts":
+                    PullBack("heart_ace", 3);
+                    break;
 
-        // if ($("#row-3 .card-place .card-slot").length < 1) {
-        //     $("#col-3-5 .card").empty();
-        //     var tempCard = "cardView" + secret_five.id;;
-        //     $("#col-3-5 .card").append($("#" + tempCard).clone());
-        // }
-        // if ($("#row-2 .card-place .card-slot").length < 1) {
-        //     $("#col-2-5 .card").empty();
-        //     var tempCard = "cardView" + secret_five.id;;
-        //     $("#col-2-5 .card").append($("#" + tempCard).clone());
-        // }
-        // if ($("#row-1 .card-place .card-slot").length < 1) {
-        //     $("#col-1-5 .card").empty();
-        //     var tempCard = "cardView" + secret_five.id;;
-        //     $("#col-1-5 .card").append($("#" + tempCard).clone());
-        // }
+                default:
+                    break;
+            }
+
+            $("#row-6").removeClass("last-row");
+            $("#row-5").addClass("last-row");
+        }
+
+        if ($("#row-5").hasClass("last-row") && $("#row-5 .card-place .card-slot").length < 1) {
+            $("#col-5-5").empty();
+            var tempCard = "cardView" + secret_five.id;;
+            $("#col-5-5").append($("#" + tempCard).clone());
+
+            switch (secret_four.type) {
+                case "Clubs":
+                    PullBack("club_ace", 2);
+                    break;
+                case "Diamonds":
+                    PullBack("diamond_ace", 4);
+                    break;
+                case "Spades":
+                    PullBack("spade_ace", 1);
+                    break;
+                case "Hearts":
+                    PullBack("heart_ace", 3);
+                    break;
+
+                default:
+                    break;
+            }
+
+            $("#row-5").removeClass("last-row");
+            $("#row-4").addClass("last-row");
+        }
+
+        if ($("#row-4").hasClass("last-row") && $("#row-4 .card-place .card-slot").length < 1) {
+            $("#col-4-5").empty();
+            var tempCard = "cardView" + secret_four.id;;
+            $("#col-4-5").append($("#" + tempCard).clone());
+
+            switch (secret_three.type) {
+                case "Clubs":
+                    PullBack("club_ace", 2);
+                    break;
+                case "Diamonds":
+                    PullBack("diamond_ace", 4);
+                    break;
+                case "Spades":
+                    PullBack("spade_ace", 1);
+                    break;
+                case "Hearts":
+                    PullBack("heart_ace", 3);
+                    break;
+
+                default:
+                    break;
+            }
+
+            $("#row-4").removeClass("last-row");
+            $("#row-3").addClass("last-row");
+        }
+
+        if ($("#row-3").hasClass("last-row") && $("#row-3 .card-place .card-slot").length < 1) {
+            $("#col-3-5").empty();
+            var tempCard = "cardView" + secret_three.id;;
+            $("#col-3-5").append($("#" + tempCard).clone());
+
+            switch (secret_two.type) {
+                case "Clubs":
+                    PullBack("club_ace", 2);
+                    break;
+                case "Diamonds":
+                    PullBack("diamond_ace", 4);
+                    break;
+                case "Spades":
+                    PullBack("spade_ace", 1);
+                    break;
+                case "Hearts":
+                    PullBack("heart_ace", 3);
+                    break;
+
+                default:
+                    break;
+            }
+
+            $("#row-3").removeClass("last-row");
+            $("#row-2").addClass("last-row");
+        }
+        if ($("#row-2").hasClass("last-row") && $("#row-2 .card-place .card-slot").length < 1) {
+            $("#col-2-5 ").empty();
+            var tempCard = "cardView" + secret_two.id;;
+            $("#col-2-5 ").append($("#" + tempCard).clone());
+
+            switch (secret_one.type) {
+                case "Clubs":
+                    PullBack("club_ace", 2);
+                    break;
+                case "Diamonds":
+                    PullBack("diamond_ace", 4);
+                    break;
+                case "Spades":
+                    PullBack("spade_ace", 1);
+                    break;
+                case "Hearts":
+                    PullBack("heart_ace", 3);
+                    break;
+
+                default:
+                    break;
+            }
+
+            $("#row-2").removeClass("last-row");
+            $("#row-1").addClass("last-row");
+        }
+        if ($("#row-1").hasClass("last-row") && $("#row-1 .card-place .card-slot").length < 1) {
+            $("#col-1-5 ").empty();
+            var tempCard = "cardView" + secret_one.id;;
+            $("#col-1-5 ").append($("#" + tempCard).clone());
+
+            switch (secret_one.type) {
+                case "Clubs":
+                    PullBack("club_ace", 2);
+                    break;
+                case "Diamonds":
+                    PullBack("diamond_ace", 4);
+                    break;
+                case "Spades":
+                    PullBack("spade_ace", 1);
+                    break;
+                case "Hearts":
+                    PullBack("heart_ace", 3);
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        if (clubs_index == 0 || spades_index == 0 || hearts_index == 0 || diamonds_index == 0) {
+            alert("oyun bitti");
+        }
+    };
+
+    PullBack = function PullBack(theCard, index) {
+        var currentRow = $("#" + theCard).parent().attr("id").split("-")[1];
+        $("#col-" + (Number(currentRow) + 1) + "-" + index).removeClass("empty-card").append($("#" + theCard));
+        $("#" + ("col-" + (Number(currentRow)) + "-" + index)).addClass("empty-card");
+
     };
 
     PickACard = function PickACard() {
